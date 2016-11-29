@@ -4,7 +4,10 @@
   "description": "Ready to use logging module for node.js based on Winston.",
   "keywords": [
     "logging",
-    "winston"
+    "winston",
+    "console",
+    "winston-formatter",
+    "winston-transport"
   ],
   "homepage": "https://github.com/stefanwalther/winster#readme",
   "bugs": {
@@ -25,7 +28,8 @@
   },
   "dependencies": {
     "winston": "^2.3.0",
-    "winston-config": "^0.5.1"
+    "winston-config": "^0.5.1",
+    "winston-console-formatter": "^0.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
