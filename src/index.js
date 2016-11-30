@@ -19,8 +19,6 @@ export default class winster {
       ]
     } );
   }
-
-  // Lowest level
   silly( message, ...args ) {
     this.winston.silly( message, ...args );
   }

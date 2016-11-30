@@ -1,0 +1,15 @@
+{
+  "transports": {
+    "Console": {
+      "enabled": true,
+      "name": "debug-console",
+      "level": "silly",
+      "colorize": true,
+      "handleExceptions": true,
+      "json": false
+    },
+    "Postgres": {
+      "enabled": false
+    }
+  }
+}
