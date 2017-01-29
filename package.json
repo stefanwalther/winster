@@ -21,6 +21,7 @@
     "url": "git+https://github.com/stefanwalther/winster.git"
   },
   "scripts": {
+    "docs": "verb",
     "lint:src": "eslint src",
     "lint:test": "eslint test",
     "test": "mocha ./test/unit/**/*.spec.js --require ./test/mocha.conf.js"
@@ -39,5 +40,26 @@
     "eslint-plugin-mocha": "^4.7.0",
     "mocha": "^3.2.0",
     "nyc": "^10.0.0"
+  },
+  "verb": {
+    "run": true,
+    "toc": false,
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": []
+    },
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "verb",
+      "verb-readme-generator"
+    ]
   }
 }
