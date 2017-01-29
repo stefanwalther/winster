@@ -51,4 +51,11 @@ describe('Log Levels', () => {
     }
   });
 
+
+  it('returns the same logger when calling `instance()`', () => {
+    let first = Winster.instance();
+    let second = Winster.instance();
+    expect(first).to.be.deep.equal(second);
+  });
+
 });
