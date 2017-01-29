@@ -1,5 +1,5 @@
 const Winston = require('winston');
-const configLevels = require('./config-levels');
+const logLevels = require('./config-levels');
 
 let logger;
 
@@ -8,8 +8,9 @@ class Logger {
     this.options = {};
     this.options.namespace = namespace || {};
     this.winston = new (Winston.Logger)({
-      levels: configLevels.levels,
-      color: configLevels.colors
+      level: logLevels.defaultLevel,
+      levels: logLevels.levels,
+      color: logLevels.colors
     });
     this.config();
   }
@@ -24,10 +25,10 @@ class Logger {
 
   config() {
 
-
-    for (let level in this.winston.levels) {
+    for (let level in logLevels.levels) {
       this[level] = function (msg, msgContext) {
-        this.log(level, msg, msgContext);
+        //this.log(level, msg, msgContext);
+        this.winston[level](msg, msgContext);
       }
     }
   }

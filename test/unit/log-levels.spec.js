@@ -7,26 +7,23 @@ const Winster = require('../../src/logger');
 const logLevels = require('../../src/config-levels');
 const _ = require('lodash');
 
+
+
 describe('Log Levels', () => {
 
   let logger;
   let transport;
+  let spy;
 
-  beforeEach(function () {
+  beforeEach( () => {
     spy = sinon.spy();
 
-    // transport = new (winston.transports.Memory)({
-    //   json: true,
-    //   stringify: true,
-    //   level: 'trace'
-    // });
-    transport = new WinstonSpy({ spy: spy });
-
-    // logger = new Winston.Logger({
-    //   transports: [new WinstonSpy({ spy: spy })]
-    // });
     logger = new Winster();
-    logger.winston.transports = [transport];
+    logger.winston.add(WinstonSpy, { spy: spy, level: logLevels.defaultLevel });
+  });
+
+  afterEach(() => {
+    spy.reset();
   });
 
   it('are exposed as methods on root level', () => {
@@ -35,11 +32,22 @@ describe('Log Levels', () => {
     }
   });
 
-  xit('streams the right output', () => {
+  it('spy works ...', function() {
+    const testMessage = 'Hello World';
+    const testMeta = { hello: 'world' };
+    logger.log('info', testMessage, testMeta);
+    expect(spy.calledOnce).to.be.true;
+    expect(spy.calledWith('info', testMessage, testMeta));
+  });
+
+  it('streams the right output', () => {
     for (let key in logLevels.levels) {
-      logger[key]('...');
-      //console.log(spy);
+      let testMessage = 'Hello World';
+      let testMeta = { hello: 'world', level: key };
+      logger[key](testMessage, testMeta);
       expect(spy.calledOnce).to.be.true;
+      expect(spy.calledWith(key, testMessage, testMeta)).to.be.true;
+      spy.reset();
     }
   });
 

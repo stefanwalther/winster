@@ -1,4 +1,5 @@
 const defaultLevels = {
+  defaultLevel: 'trace',
   levels: {
     fatal: 0,
     error: 1,
