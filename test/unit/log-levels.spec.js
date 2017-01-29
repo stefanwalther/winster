@@ -1,12 +1,13 @@
 /*global describe, it, beforeEach*/
 const sinon = require('sinon');
 const winston = require('winston');
+const winstonSpy = require('winston-spy');
 
 const Winster = require('../../src/logger');
 const logLevels = require('../../src/config-levels');
 const _ = require('lodash');
 
-describe( 'Log Levels', () => {
+describe('Log Levels', () => {
 
   let logger;
   let transport;
@@ -14,11 +15,12 @@ describe( 'Log Levels', () => {
   beforeEach(function () {
     spy = sinon.spy();
 
-    transport = new (winston.transports.Memory)({
-      json: true,
-      stringify: true,
-      level: 'trace'
-    });
+    // transport = new (winston.transports.Memory)({
+    //   json: true,
+    //   stringify: true,
+    //   level: 'trace'
+    // });
+    transport = new WinstonSpy({ spy: spy });
 
     // logger = new Winston.Logger({
     //   transports: [new WinstonSpy({ spy: spy })]
@@ -27,10 +29,16 @@ describe( 'Log Levels', () => {
     logger.winston.transports = [transport];
   });
 
-  it( 'has a method for each log level', () => {
+  it('are exposed as methods on root level', () => {
     for (let key in logLevels.levels) {
       expect(logger).to.have.property(key).to.be.a.function;
     }
-  } );
+  });
 
-} );
+  it('streams the right output', () => {
+    for (let key in logLevels.levels) {
+
+    }
+  });
+
+});

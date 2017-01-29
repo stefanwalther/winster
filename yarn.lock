@@ -833,11 +833,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@~2.0.1:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
-
-inherits@2.0.1:
+inherits@2, inherits@2.0.1, inherits@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
@@ -1907,6 +1903,10 @@ winston-mongodb@^1.6.5:
   resolved "https://registry.yarnpkg.com/winston-mongodb/-/winston-mongodb-1.6.5.tgz#281cb6cf032b5384363a77d1b51bcaf13446eba8"
   dependencies:
     mongodb "^2.0.46"
+
+winston-spy@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/winston-spy/-/winston-spy-0.2.0.tgz#d4fe680ba1352a0781704052d57e7509b1789c5c"
 
 winston@^2.3.0:
   version "2.3.0"
