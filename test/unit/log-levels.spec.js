@@ -1,7 +1,7 @@
 /*global describe, it, beforeEach*/
 const sinon = require('sinon');
 const winston = require('winston');
-const winstonSpy = require('winston-spy');
+const WinstonSpy = require('winston-spy');
 
 const Winster = require('../../src/logger');
 const logLevels = require('../../src/config-levels');
