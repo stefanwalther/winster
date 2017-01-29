@@ -98,7 +98,7 @@ class Logger {
    */
   _internalLog(msg, msgContext) {
     if (process.env.WINSTER_SUPRESS_LOGGING !== 'true') {
-      console.log(msg, msgContext);
+      console.log.apply(console, arguments);
     }
   }
 
@@ -107,11 +107,10 @@ class Logger {
     const env = !_.isEmpty(process.env.NODE_ENV) ? process.env.NODE_ENV : 'development';
 
     const transports = this._transportConfig[env];
-    console.log(transports);
     const transportsList = _.map(transports, item => {
       return item.options.name;
     });
-    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + transportsList + '\r\n');
+    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + (!_.isEmpty(transportsList) ? transportsList : '-') + '\r\n');
     if (transports) {
       transports.forEach(item => {
         this.winston.add(item.transporter, item.options);
@@ -120,7 +119,7 @@ class Logger {
   }
 
   log(level, msg, context) {
-    this.winston.log(level, msg, context);
+      this.winston.log(level, msg, context);
   }
 
 }

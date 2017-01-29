@@ -21,7 +21,6 @@ logger.debug('...');
 logger.warn('...');
 logger.data('...');
 logger.info('...');
-logger.info('...');
 logger.verbose('...');
 logger.trace('...');
 ```
