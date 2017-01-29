@@ -70,8 +70,9 @@ class Logger {
 
     // 1st: fetch the configuration in package.json
     const pkg = readPkg.sync();
-    if (pkg.winster && pkg.winster.config) {
-      const configPkg = path.join(pkgDir.sync(), pkg.winster.config);
+    //this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
+    if (pkg.winster && pkg.winster.configFile) {
+      const configPkg = path.join(pkgDir.sync(), pkg.winster.configFile);
       if (fs.existsSync(configPkg)) {
         this._internalLog('[winster] Using transports as defined in package.json\r\n');
         return _.extend(require(configPkg), {from: 'package.json'});
@@ -80,10 +81,13 @@ class Logger {
 
     // 2nd: Look for a file called .winster.js in the project's root.
     const rootFile = path.join(process.cwd(), '.winster.js');
+    // this._internalLog('[winster] Rootfile:', rootFile);
     if (fs.existsSync(rootFile)) {
+      this._internalLog('[winster] Loading .winster.js');
       return _.extend(require(rootFile), {from: '.winster.js'});
     }
 
+    this._internalLog('[winster] Loading default transports');
     return _.extend(defaultTransports, {from: 'default'});
   }
 
@@ -92,21 +96,22 @@ class Logger {
    * @param msg
    * @private
    */
-  _internalLog(msg) {
+  _internalLog(msg, msgContext) {
     if (process.env.WINSTER_SUPRESS_LOGGING !== 'true') {
-      console.log(msg);
+      console.log(msg, msgContext);
     }
   }
 
   _configTransports() {
     this._transportConfig = this._getTransportDefinition();
-    const env = process.env.NODE_ENV;
+    const env = process.env.NODE_ENV || 'development';
 
     const transports = this._transportConfig[env];
+    console.log(transports);
     const transportsList = _.map(transports, item => {
       return item.options.name;
     });
-    this._internalLog('Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + transportsList + '\r\n');
+    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + transportsList + '\r\n');
     if (transports) {
       transports.forEach(item => {
         this.winston.add(item.transporter, item.options);

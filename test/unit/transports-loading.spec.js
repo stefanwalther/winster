@@ -36,7 +36,7 @@ describe('Transport configuration', () => {
     const pkgFilePath = path.join(process.cwd(), 'package.json');
     const data = JSON.parse(fs.readFileSync(pkgFilePath), 'utf-8');
     data.winster = {
-      config: configPath
+      configFile: configPath
     };
     fs.writeFileSync(pkgFilePath, JSON.stringify(data, null, 2));
   }
