@@ -104,7 +104,7 @@ class Logger {
 
   _configTransports() {
     this._transportConfig = this._getTransportDefinition();
-    const env = process.env.NODE_ENV || 'development';
+    const env = !_.isEmpty(process.env.NODE_ENV) ? process.env.NODE_ENV : 'development';
 
     const transports = this._transportConfig[env];
     console.log(transports);
