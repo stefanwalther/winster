@@ -77,7 +77,6 @@ module.exports = {
     // your transports for test
   ]
 };
-}
 ```
 
 

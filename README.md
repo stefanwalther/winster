@@ -101,7 +101,6 @@ module.exports = {
     // your transports for test
   ]
 };
-}
 ```
 
 If no matching environment-section can be found in your configuration file, no transports will be added.
