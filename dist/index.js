@@ -29,9 +29,15 @@ var winster = function () {
   function winster() {
     _classCallCheck(this, winster);
 
-    this.winston = new winston.Logger({
-      transports: [new winston.transports.Console(defaultOpts)]
-    });
+    if (process.env.NODE_ENV === 'test') {
+      this.winston = new winston.Logger({
+        transports: [new winston.transports.File({ filename: 'foo.log' })]
+      });
+    } else {
+      this.winston = new winston.Logger({
+        transports: [new winston.transports.Console(defaultOpts)]
+      });
+    }
   }
 
   _createClass(winster, [{

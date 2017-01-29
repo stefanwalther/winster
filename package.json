@@ -1,7 +1,7 @@
 {
   "name": "winster",
-  "version": "0.1.2",
-  "description": "Ready to use logging module for node.js based on Winston.",
+  "version": "0.1.3",
+  "description": "Optionated logging library based on Winston.",
   "keywords": [
     "logging",
     "winston",
@@ -21,28 +21,22 @@
     "url": "git+https://github.com/stefanwalther/winster.git"
   },
   "scripts": {
-    "build": "gulp build",
-    "prepublish": "gulp build",
-    "lint": "eslint src",
+    "lint:src": "eslint src",
     "lint:test": "eslint test",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/unit/**/*.spec.js --require ./test/mocha.conf.js"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
+    "sinon": "^1.17.7",
     "winston": "^2.3.0",
     "winston-config": "^0.5.1",
-    "winston-console-formatter": "^0.3.1"
+    "winston-console-formatter": "^0.3.1",
+    "winston-mongodb": "^1.6.5"
   },
   "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-plugin-istanbul": "^3.0.0",
-    "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "eslint": "^3.11.1",
-    "eslint-config-idiomatic": "^2.1.0",
     "eslint-plugin-mocha": "^4.7.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-sourcemaps": "^1.9.1",
     "mocha": "^3.2.0",
     "nyc": "^10.0.0"
   }
