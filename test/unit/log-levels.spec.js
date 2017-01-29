@@ -35,9 +35,11 @@ describe('Log Levels', () => {
     }
   });
 
-  it('streams the right output', () => {
+  xit('streams the right output', () => {
     for (let key in logLevels.levels) {
-
+      logger[key]('...');
+      //console.log(spy);
+      expect(spy.calledOnce).to.be.true;
     }
   });
 

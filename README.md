@@ -1,6 +1,8 @@
 # winster
 > Optionated logging library based on Winston.
 
+[![CircleCI](https://circleci.com/gh/stefanwalther/winster/tree/master.svg?style=svg)](https://circleci.com/gh/stefanwalther/winster/tree/master)
+
 ## Motivation
 Winston is a powerful logging framework but still needs some setup for every project.  
 
