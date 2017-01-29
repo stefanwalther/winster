@@ -3,11 +3,11 @@
   "version": "0.1.3",
   "description": "Optionated logging library based on Winston.",
   "keywords": [
+    "log",
     "logging",
     "winston",
     "console",
-    "winston-formatter",
-    "winston-transport"
+    "winston-transports"
   ],
   "homepage": "https://github.com/stefanwalther/winster#readme",
   "bugs": {
@@ -33,6 +33,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "pkg-dir": "^1.0.0",
+    "read-pkg": "^2.0.0",
     "sinon": "^1.17.7",
     "winston": "^2.3.0",
     "winston-config": "^0.5.1",
