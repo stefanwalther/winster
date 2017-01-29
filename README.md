@@ -56,7 +56,7 @@ By default the pre-configured transports in `./src/default.transports.js` will b
 
 You can configure your custom transport configuration, by:
 
-- Prio 1: Adding a section `winster` to your `package.json`, pointing to your configuration file:
+**Prio 1**: Adding a section `winster` to your `package.json`, pointing to your configuration file:
 
 ```js
 "winster": {
@@ -64,7 +64,7 @@ You can configure your custom transport configuration, by:
 }
 ```
 
-- Prio 2: Placing a file called `.winster.json` or `.winster.js` to the root of your project.
+**Prio 2**: Placing a file called `.winster.json` or `.winster.js` to the root of your project.
 
 Transporters can be defined by environment (`process.env.NODE_ENV`):
 
@@ -104,7 +104,7 @@ module.exports = {
 }
 ```
 
-If no matching environment-section can be found in your configuration file, no transporters will be added.
+If no matching environment-section can be found in your configuration file, no transports will be added.
 
 ## Author
 **Stefan Walther**
