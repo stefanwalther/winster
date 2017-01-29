@@ -15,6 +15,12 @@ describe('Log Levels', () => {
     spy = sinon.spy();
 
     logger = new Winster();
+    // logger.winston.transports.forEach( transport => {
+    //   console.log(transport.name);
+    //   console.log(transport);
+    //   logger.winston.remove(transport.name);
+    // });
+    logger.winston.clear();
     logger.winston.add(WinstonSpy, {spy, level: logLevels.defaultLevel});
   });
 
