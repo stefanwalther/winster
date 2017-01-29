@@ -35,11 +35,7 @@
     "lodash": "^4.17.4",
     "pkg-dir": "^1.0.0",
     "read-pkg": "^2.0.0",
-    "sinon": "^1.17.7",
-    "winston": "^2.3.0",
-    "winston-config": "^0.5.1",
-    "winston-console-formatter": "^0.3.1",
-    "winston-mongodb": "^1.6.5"
+    "winston": "^2.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -50,6 +46,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
+    "sinon": "^1.17.7",
     "winston-spy": "^0.2.0"
   },
   "verb": {
