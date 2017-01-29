@@ -2,8 +2,7 @@
 > Optionated logging library based on Winston.
 
 [![npm](https://img.shields.io/npm/v/winster.svg)]()
-[![CircleCI](https://circleci.com/gh/stefanwalther/winster/tree/master.svg?style=svg)](https://circleci.com/gh/stefanwalther/winster/tree/master)
-[![Coveralls](https://img.shields.io/coveralls/stefanwalther/winston.svg)]()
+[![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/winster.svg)]()
 [![David](https://img.shields.io/david/stefanwalther/winster.svg)]()
 
 ## Motivation
@@ -20,6 +19,8 @@ or
 ```sh
 $ yarn add winster
 ```
+
+Note: _winster_ requires node.js 6.0 and higher.
 
 ## Usage
 **Basic usage, zero configuration:**
