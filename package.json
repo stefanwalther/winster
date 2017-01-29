@@ -14,8 +14,8 @@
     "url": "https://github.com/stefanwalther/winster/issues"
   },
   "license": "MIT",
-  "author": "Stefan Walther <swrqtch@gmail.com> (http://qliksite.io)",
-  "main": "dist/index.js",
+  "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwalther/winster.git"
