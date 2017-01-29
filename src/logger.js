@@ -19,7 +19,8 @@ class Logger {
     this.winston = new (Winston.Logger)({
       level: logLevels.defaultLevel,
       levels: logLevels.levels,
-      color: logLevels.colors
+      color: logLevels.colors,
+      exitOnError: false
     });
     // this._patchInternals();
     this._config();
