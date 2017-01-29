@@ -1,0 +1,16 @@
+machine:
+  node:
+    version: 0.12
+  environment:
+      PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - yarn run test
+    - nvm use 4.0; yarn run test
