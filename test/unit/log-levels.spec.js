@@ -1,25 +1,21 @@
-/*global describe, it, beforeEach*/
+/* global describe, expect, it, beforeEach */
 const sinon = require('sinon');
-const winston = require('winston');
 const WinstonSpy = require('winston-spy');
 
 const Winster = require('../../src/logger');
 const logLevels = require('../../src/config-levels');
 const _ = require('lodash');
 
-
-
 describe('Log Levels', () => {
 
   let logger;
-  let transport;
   let spy;
 
-  beforeEach( () => {
+  beforeEach(() => {
     spy = sinon.spy();
 
     logger = new Winster();
-    logger.winston.add(WinstonSpy, { spy: spy, level: logLevels.defaultLevel });
+    logger.winston.add(WinstonSpy, {spy, level: logLevels.defaultLevel});
   });
 
   afterEach(() => {
@@ -27,23 +23,27 @@ describe('Log Levels', () => {
   });
 
   it('are exposed as methods on root level', () => {
-    for (let key in logLevels.levels) {
+
+    // eslint-disable-next-line guard-for-in
+    for (const key in logLevels.levels) {
       expect(logger).to.have.property(key).to.be.a.function;
     }
   });
 
-  it('spy works ...', function() {
+  it('spy works ...', () => {
     const testMessage = 'Hello World';
-    const testMeta = { hello: 'world' };
+    const testMeta = {hello: 'world'};
     logger.log('info', testMessage, testMeta);
     expect(spy.calledOnce).to.be.true;
     expect(spy.calledWith('info', testMessage, testMeta));
   });
 
   it('streams the right output', () => {
-    for (let key in logLevels.levels) {
-      let testMessage = 'Hello World';
-      let testMeta = { hello: 'world', level: key };
+
+    // eslint-disable-next-line guard-for-in
+    for (const key in logLevels.levels) {
+      const testMessage = 'Hello World';
+      const testMeta = {hello: 'world', level: key};
       logger[key](testMessage, testMeta);
       expect(spy.calledOnce).to.be.true;
       expect(spy.calledWith(key, testMessage, testMeta)).to.be.true;

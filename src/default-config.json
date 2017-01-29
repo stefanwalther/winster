@@ -3,7 +3,7 @@
     "Console": {
       "enabled": true,
       "name": "debug-console",
-      "level": "silly",
+      "level": "trace",
       "colorize": true,
       "handleExceptions": true,
       "json": false

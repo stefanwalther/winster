@@ -22,8 +22,12 @@
   },
   "scripts": {
     "docs": "verb",
+    "lint": "yarn run lint:src && yarn run lint:test",
+    "lint:fix": "yarn run lint:src:fix && yarn run lint:test:fix",
     "lint:src": "eslint src",
+    "lint:src:fix": "eslint src --fix",
     "lint:test": "eslint test",
+    "lint:test:fix": "eslint test --fix",
     "test": "mocha ./test/unit/**/*.spec.js --require ./test/mocha.conf.js"
   },
   "dependencies": {
@@ -37,6 +41,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.11.1",
+    "eslint-config-xo-space": "^0.15.0",
     "eslint-plugin-mocha": "^4.7.0",
     "mocha": "^3.2.0",
     "nyc": "^10.0.0",

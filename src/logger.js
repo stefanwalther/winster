@@ -15,6 +15,7 @@ class Logger {
     this.config();
   }
 
+  // Allow easy instantiation by using `require('winster').instance()`
   static instance() {
     if (!logger) {
       logger = new Logger();
@@ -22,21 +23,22 @@ class Logger {
     return logger;
   }
 
-
   config() {
 
-    for (let level in logLevels.levels) {
+    // Expose a method for each of the custom log levels
+    for (const level in logLevels.levels) { // eslint-disable-line guard-for-in
       this[level] = function (msg, msgContext) {
-        //this.log(level, msg, msgContext);
         this.winston[level](msg, msgContext);
-      }
+      };
     }
+
+
+
   }
 
   log(level, msg, context) {
-    this.winston.log(level, msg, context)
+    this.winston.log(level, msg, context);
   }
-
 
 }
 
