@@ -15,11 +15,6 @@ describe('Log Levels', () => {
     spy = sinon.spy();
 
     logger = new Winster();
-    // logger.winston.transports.forEach( transport => {
-    //   console.log(transport.name);
-    //   console.log(transport);
-    //   logger.winston.remove(transport.name);
-    // });
     logger.winston.clear();
     logger.winston.add(WinstonSpy, {spy, level: logLevels.defaultLevel});
   });
@@ -57,10 +52,9 @@ describe('Log Levels', () => {
     }
   });
 
-
   it('returns the same logger when calling `instance()`', () => {
-    let first = Winster.instance();
-    let second = Winster.instance();
+    const first = Winster.instance();
+    const second = Winster.instance();
     expect(first).to.be.deep.equal(second);
   });
 

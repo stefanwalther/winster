@@ -72,5 +72,8 @@
       "verb",
       "verb-readme-generator"
     ]
+  },
+  "engines": {
+    "node": ">=6.0"
   }
 }

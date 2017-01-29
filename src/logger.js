@@ -1,3 +1,4 @@
+/* global require */
 const Winston = require('winston');
 const _ = require('lodash');
 const readPkg = require('read-pkg');
@@ -11,7 +12,7 @@ const defaultTransports = require('./default-transports');
 let logger;
 
 class Logger {
-  constructor(namespace, context) {
+  constructor(namespace /* , context */) {
     this.options = {};
     this.options.namespace = namespace || {};
 
@@ -20,6 +21,7 @@ class Logger {
       levels: logLevels.levels,
       color: logLevels.colors
     });
+    // this._patchInternals();
     this._config();
     this._configTransports();
   }
@@ -42,6 +44,17 @@ class Logger {
     }
   }
 
+  // Fix to include a line break into the log
+  // See: https://github.com/winstonjs/winston/issues/460
+  _patchInternals() {
+    const self = this;
+    this.winston.log = function () {
+      const args = arguments;
+      args[1] += '\r\n';
+      self.winston.Logger.prototype.log.apply(this, args);
+    };
+  }
+
   /**
    * Determines which transport configuration file to use:
    *
@@ -55,17 +68,17 @@ class Logger {
   _getTransportDefinition() {
 
     // 1st: fetch the configuration in package.json
-    let pkg = readPkg.sync();
+    const pkg = readPkg.sync();
     if (pkg.winster && pkg.winster.config) {
-      let configPkg = path.join(pkgDir.sync(), pkg.winster.config);
-      if (fs.existsSync( configPkg)) {
+      const configPkg = path.join(pkgDir.sync(), pkg.winster.config);
+      if (fs.existsSync(configPkg)) {
         this._internalLog('[winster] Using transports as defined in package.json\r\n');
         return _.extend(require(configPkg), {from: 'package.json'});
       }
     }
 
     // 2nd: Look for a file called .winster.js in the project's root.
-    let rootFile = path.join(process.cwd(), '.winster.js');
+    const rootFile = path.join(process.cwd(), '.winster.js');
     if (fs.existsSync(rootFile)) {
       return _.extend(require(rootFile), {from: '.winster.js'});
     }
@@ -86,15 +99,15 @@ class Logger {
 
   _configTransports() {
     this._transportConfig = this._getTransportDefinition();
-    let env = process.env.NODE_ENV;
+    const env = process.env.NODE_ENV;
 
-    let transports = this._transportConfig[env];
-    let transportsList = _.map(transports, item => {
+    const transports = this._transportConfig[env];
+    const transportsList = _.map(transports, item => {
       return item.options.name;
     });
-    // console.log('Adding ' + transports.length + ' transport(s) to ' + env + ': ' + transportsList + '\r\n');
+    this._internalLog('Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + transportsList + '\r\n');
     if (transports) {
-      transports.forEach( item => {
+      transports.forEach(item => {
         this.winston.add(item.transporter, item.options);
       });
     }
