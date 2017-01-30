@@ -20,6 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/stefanwalther/winster.git"
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "docs": "verb",
     "lint": "yarn run lint:src && yarn run lint:test",
