@@ -1,4 +1,6 @@
 # winster
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/winster.svg)](https://greenkeeper.io/)
 > Optionated logging library based on Winston.
 
 [![npm](https://img.shields.io/npm/v/winster.svg)]()
