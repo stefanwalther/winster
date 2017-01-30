@@ -2,7 +2,7 @@
 const sinon = require('sinon');
 const WinstonSpy = require('winston-spy');
 
-const Winster = require('../../src/logger');
+const Winster = require('../../index');
 const logLevels = require('../../src/config-levels');
 const _ = require('lodash');
 

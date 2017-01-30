@@ -1,6 +1,6 @@
 {
   "name": "winster",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Optionated logging library based on Winston.",
   "keywords": [
     "log",
@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwalther/winster.git"

@@ -1,5 +1,5 @@
 /* global describe, expect, it, beforeEach, after, afterEach */
-const Winster = require('./../../src/index');
+const Winster = require('./../../index');
 const fs = require('fs');
 const path = require('path');
 
