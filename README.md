@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/winster.svg)]()
 [![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/winster.svg)]()
 [![David](https://img.shields.io/david/stefanwalther/winster.svg)]()
+[![Greenkeeper](https://badges.greenkeeper.io/stefanwalther/winster.svg)](https://greenkeeper.io/)
 
 ## Motivation
 Winston is a powerful logging framework but still needs some setup for every project.  
@@ -44,7 +45,6 @@ logger.error('...');
 logger.debug('...');
 logger.warn('...');
 logger.data('...');
-logger.info('...');
 logger.info('...');
 logger.verbose('...');
 logger.trace('...');
