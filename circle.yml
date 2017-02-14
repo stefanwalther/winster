@@ -14,4 +14,5 @@ test:
   override:
     - nvm use 6.0; yarn run test
     - nvm use 7.0; yarn run test
+    - nvm use 7.2; yarn run test
     - nvm use latest; yarn run test
