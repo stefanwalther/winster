@@ -2,6 +2,7 @@ const Winston = require('winston');
 
 // Note: you cannot have two transports of same kind and same level.
 // This should actually be prevented when loading the transports.
+/* istanbul ignore next */
 const config = {
   development: [
     {
@@ -11,7 +12,6 @@ const config = {
         level: 'trace',
         colorize: true,
         json: false,
-        /* istanbul ignore next */
         prettyPrint(object) {
           return JSON.stringify(object, null, 2);
         },
