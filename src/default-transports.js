@@ -11,6 +11,7 @@ const config = {
         level: 'trace',
         colorize: true,
         json: false,
+        /* istanbul ignore next */
         prettyPrint(object) {
           return JSON.stringify(object, null, 2);
         },

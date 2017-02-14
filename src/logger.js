@@ -47,14 +47,14 @@ class Logger {
 
   // Fix to include a line break into the log
   // See: https://github.com/winstonjs/winston/issues/460
-  _patchInternals() {
-    const self = this;
-    this.winston.log = function () {
-      const args = arguments;
-      args[1] += '\r\n';
-      self.winston.Logger.prototype.log.apply(this, args);
-    };
-  }
+  // _patchInternals() {
+  //   const self = this;
+  //   this.winston.log = function () {
+  //     const args = arguments;
+  //     args[1] += '\r\n';
+  //     self.winston.Logger.prototype.log.apply(this, args);
+  //   };
+  // }
 
   /**
    * Determines which transport configuration file to use:
