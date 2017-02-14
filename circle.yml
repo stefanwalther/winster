@@ -15,6 +15,6 @@ test:
     - nvm use 6.0; yarn run test
     - nvm use 7.0; yarn run test
     - nvm use 7.2; yarn run test
-    - nvm use latest; yarn run test
+    - nvm use latest; yarn run test-coverage
   post:
     - bash <(curl -s https://codecov.io/bash)

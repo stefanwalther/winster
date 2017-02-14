@@ -31,8 +31,8 @@
     "lint:src:fix": "eslint src --fix",
     "lint:test": "eslint test",
     "lint:test:fix": "eslint test --fix",
-    "test-wo": "mocha ./test/unit/**/*.spec.js --require ./test/mocha.conf.js",
-    "test": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov"
+    "test": "mocha ./test/unit/**/*.spec.js --require ./test/mocha.conf.js",
+    "test-coverage": "istanbul cover node_modules/.bin/_mocha  --require ./test/mocha.conf.js -- -- -u exports -R spec test/**/* && codecov"
   },
   "dependencies": {
     "lodash": "^4.17.4",
