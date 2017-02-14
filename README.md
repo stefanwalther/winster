@@ -3,7 +3,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/winster.svg?style=flat)](https://www.npmjs.com/package/winster)
 [![David](https://img.shields.io/david/stefanwalther/winster.svg)](https://github.com/stefanwalther/winster)
-[![CircleCI](https://circleci.com/gh/stefanwalther/winster/tree/master.svg?style=svg)](https://circleci.com/gh/stefanwalther/winster/tree/master)
+[![CircleCI](https://img.shields.io/circleci/project/github/stefanwalther/winster.svg)](https://circleci.com/gh/stefanwalther/winster/tree/master)
 [![codecov](https://codecov.io/gh/stefanwalther/winster/branch/master/graph/badge.svg)](https://codecov.io/gh/stefanwalther/winster)
 [![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/winster.svg)](https://greenkeeper.io/)
 
