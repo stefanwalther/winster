@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "pkg-dir": "^1.0.0",
+    "pkg-dir": "^2.0.0",
     "read-pkg": "^2.0.0",
     "winston": "^2.3.1"
   },
