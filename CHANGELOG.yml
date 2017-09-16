@@ -1,0 +1,5 @@
+v0.2.6:
+  date: "2017-09-17"
+  changes:
+    - "Move back to npm"
+    - "Update dependencies: sinon, eslint, chai, pkg-dir"
