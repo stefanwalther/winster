@@ -27,7 +27,7 @@ describe('Log Levels', () => {
 
     // eslint-disable-next-line guard-for-in
     for (const key in logLevels.levels) {
-      expect(logger).to.have.property(key).to.be.a.function;
+      expect(logger).to.have.property(key).to.be.a('function');
     }
   });
 

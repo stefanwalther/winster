@@ -36,12 +36,12 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "pkg-dir": "^1.0.0",
+    "pkg-dir": "^2.0.0",
     "read-pkg": "^2.0.0",
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
     "codecov": "^2.0.1",
     "eslint": "^4.1.0",
     "eslint-config-space-single": "^0.2.0",
