@@ -70,7 +70,7 @@ class Logger {
 
     // 1st: fetch the configuration in package.json
     const pkg = readPkg.sync();
-    //this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
+    // this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
     if (pkg.winster && pkg.winster.configFile) {
       const configPkg = path.join(pkgDir.sync(), pkg.winster.configFile);
       if (fs.existsSync(configPkg)) {
@@ -96,7 +96,7 @@ class Logger {
    * @param msg
    * @private
    */
-  _internalLog(msg, msgContext) {
+  _internalLog(/* msg, msgContext */) {
     if (process.env.WINSTER_SUPRESS_LOGGING !== 'true') {
       console.log.apply(console, arguments);
     }
@@ -104,13 +104,13 @@ class Logger {
 
   _configTransports() {
     this._transportConfig = this._getTransportDefinition();
-    const env = !_.isEmpty(process.env.NODE_ENV) ? process.env.NODE_ENV : 'development';
+    const env = !_.isEmpty(process.env.NODE_ENV) ? process.env.NODE_ENV : 'development'; // eslint-disable-line no-negated-condition
 
     const transports = this._transportConfig[env];
     const transportsList = _.map(transports, item => {
       return item.options.name;
     });
-    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + (!_.isEmpty(transportsList) ? transportsList : '-') + '\r\n');
+    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + (!_.isEmpty(transportsList) ? transportsList : '-') + '\r\n');  // eslint-disable-line no-negated-condition
     if (transports) {
       transports.forEach(item => {
         this.winston.add(item.transporter, item.options);
@@ -119,7 +119,7 @@ class Logger {
   }
 
   log(level, msg, context) {
-      this.winston.log(level, msg, context);
+    this.winston.log(level, msg, context);
   }
 
 }
