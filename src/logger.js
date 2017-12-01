@@ -69,15 +69,18 @@ class Logger {
   _getTransportDefinition() {
 
     // 1st: fetch the configuration in package.json
-    const pkg = readPkg.sync();
-    // this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
-    if (pkg.winster && pkg.winster.configFile) {
-      const configPkg = path.join(pkgDir.sync(), pkg.winster.configFile);
-      if (fs.existsSync(configPkg)) {
-        this._internalLog('[winster] Using transports as defined in package.json\r\n');
-        return _.extend(require(configPkg), {from: 'package.json'});
+    if (fs.existsSync(path.join(process.cwd(), 'package.json'))) {
+      const pkg = readPkg.sync();
+      // this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
+      if (pkg.winster && pkg.winster.configFile) {
+        const configPkg = path.join(pkgDir.sync(), pkg.winster.configFile);
+        if (fs.existsSync(configPkg)) {
+          this._internalLog('[winster] Using transports as defined in package.json\r\n');
+          return _.extend(require(configPkg), {from: 'package.json'});
+        }
       }
     }
+
 
     // 2nd: Look for a file called .winster.js in the project's root.
     const rootFile = path.join(process.cwd(), '.winster.js');
