@@ -4,7 +4,6 @@ const WinstonSpy = require('winston-spy');
 
 const Winster = require('../../index');
 const logLevels = require('../../src/config-levels');
-const _ = require('lodash');
 
 describe('Log Levels', () => {
 
