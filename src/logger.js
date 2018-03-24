@@ -22,7 +22,7 @@ class Logger {
       colors: logLevels.colors,
       exitOnError: false
     });
-    // this._patchInternals();
+    // This._patchInternals();
     this._config();
     this._configTransports();
   }
@@ -71,7 +71,7 @@ class Logger {
     // 1st: fetch the configuration in package.json
     if (fs.existsSync(path.join(process.cwd(), 'package.json'))) {
       const pkg = readPkg.sync();
-      // this._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
+      // This._internalLog('[winster] package from ' + pkg.name + ': ', pkg.winster);
       if (pkg.winster && pkg.winster.configFile) {
         const configPkg = path.join(pkgDir.sync(), pkg.winster.configFile);
         if (fs.existsSync(configPkg)) {
@@ -81,10 +81,9 @@ class Logger {
       }
     }
 
-
     // 2nd: Look for a file called .winster.js in the project's root.
     const rootFile = path.join(process.cwd(), '.winster.js');
-    // this._internalLog('[winster] Rootfile:', rootFile);
+    // This._internalLog('[winster] Rootfile:', rootFile);
     if (fs.existsSync(rootFile)) {
       this._internalLog('[winster] Loading .winster.js');
       return _.extend(require(rootFile), {from: '.winster.js'});
@@ -113,7 +112,7 @@ class Logger {
     const transportsList = _.map(transports, item => {
       return item.options.name;
     });
-    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + (!_.isEmpty(transportsList) ? transportsList : '-') + '\r\n');  // eslint-disable-line no-negated-condition
+    this._internalLog('[winster] Adding ' + (transports ? transports.length : 0) + ' transport(s) to ' + env + ': ' + (!_.isEmpty(transportsList) ? transportsList : '-') + '\r\n'); // eslint-disable-line no-negated-condition
     if (transports) {
       transports.forEach(item => {
         this.winston.add(item.transporter, item.options);

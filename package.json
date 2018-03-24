@@ -3,10 +3,10 @@
   "version": "0.2.9",
   "description": "Optionated logging library based on Winston.",
   "keywords": [
+    "console",
     "log",
     "logging",
     "winston",
-    "console",
     "winston-transports"
   ],
   "homepage": "https://github.com/stefanwalther/winster#readme",
@@ -15,14 +15,14 @@
   },
   "license": "MIT",
   "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
+  "files": [
+    "src"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stefanwalther/winster.git"
   },
-  "files": [
-    "src"
-  ],
   "scripts": {
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "lint": "yarn run lint:src && yarn run lint:test",
@@ -52,6 +52,14 @@
     "sinon": "5.0.0",
     "winston-spy": "^0.2.0"
   },
+  "engines": {
+    "node": ">=7.2"
+  },
+  "renovate": {
+    "extends": [
+      "config:base"
+    ]
+  },
   "verb": {
     "run": true,
     "toc": false,
@@ -72,8 +80,5 @@
       "verb",
       "verb-readme-generator"
     ]
-  },
-  "engines": {
-    "node": ">=6.0"
   }
 }
