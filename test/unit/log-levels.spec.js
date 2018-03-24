@@ -19,7 +19,7 @@ describe('Log Levels', () => {
   });
 
   afterEach(() => {
-    spy.reset();
+    spy.resetHistory();
   });
 
   it('are exposed as methods on root level', () => {
@@ -47,7 +47,7 @@ describe('Log Levels', () => {
       logger[key](testMessage, testMeta);
       expect(spy.calledOnce).to.be.true;
       expect(spy.calledWith(key, testMessage, testMeta)).to.be.true;
-      spy.reset();
+      spy.resetHistory();
     }
   });
 
