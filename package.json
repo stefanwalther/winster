@@ -24,7 +24,6 @@
     "url": "git+https://github.com/stefanwalther/winster.git"
   },
   "scripts": {
-    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "lint": "yarn run lint:src && yarn run lint:test",
     "lint:fix": "yarn run lint:src:fix && yarn run lint:test:fix",
     "lint:src": "eslint src",
