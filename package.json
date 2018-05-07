@@ -55,11 +55,6 @@
   "engines": {
     "node": ">=7.2"
   },
-  "renovate": {
-    "extends": [
-      "config:base"
-    ]
-  },
   "verb": {
     "run": true,
     "toc": false,
