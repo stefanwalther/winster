@@ -4,6 +4,6 @@
     "schedule:monthly"
   ],
   "nvm": {
-    "enabled": false
+    "enabled": true
   }
 }
