@@ -1,6 +1,6 @@
 {
   "name": "winster",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Optionated logging library based on Winston.",
   "keywords": [
     "console",
