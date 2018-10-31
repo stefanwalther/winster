@@ -16,7 +16,7 @@ class Logger {
     this.options = {};
     this.options.namespace = namespace || {};
 
-    this.winston = new (Winston.Logger)({
+    this.winston = Winston.createLogger({
       level: logLevels.defaultLevel,
       levels: logLevels.levels,
       colors: logLevels.colors,
