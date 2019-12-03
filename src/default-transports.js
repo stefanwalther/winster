@@ -1,4 +1,4 @@
-const Winston = require('winston');
+const Winston = require("winston");
 
 // Note: you cannot have two transports of same kind and same level.
 // This should actually be prevented when loading the transports.
@@ -8,8 +8,8 @@ const config = {
     {
       transporter: Winston.transports.Console,
       options: {
-        name: 'Console',
-        level: 'trace',
+        name: "Console",
+        level: "trace",
         colorize: true,
         json: false,
         prettyPrint(object) {

@@ -1,5 +1,5 @@
 const defaultLevels = {
-  defaultLevel: 'trace',
+  defaultLevel: "trace",
   levels: {
     fatal: 0,
     error: 1,
@@ -11,14 +11,14 @@ const defaultLevels = {
     trace: 7
   },
   colors: {
-    fatal: 'red',
-    error: 'red',
-    debug: 'blue',
-    warn: 'yellow',
-    data: 'grey',
-    info: 'green',
-    verbose: 'cyan',
-    trace: 'magenta'
+    fatal: "red",
+    error: "red",
+    debug: "blue",
+    warn: "yellow",
+    data: "grey",
+    info: "green",
+    verbose: "cyan",
+    trace: "magenta"
   }
 };
 
